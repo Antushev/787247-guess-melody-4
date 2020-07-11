@@ -1,9 +1,3 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import App from './app.jsx';
-
-const errorCount = 3;
-
 const questions = [
   {
     type: `artist`,
@@ -50,13 +44,4 @@ const questions = [
   }
 ];
 
-describe(`AppComponent`, () => {
-  it(`Snapshot AppComponent`, () => {
-    const tree = renderer.create(<App
-      questions={questions}
-      errorCount={errorCount}
-    />).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-});
+export {questions};
