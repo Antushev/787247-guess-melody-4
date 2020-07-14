@@ -25,12 +25,12 @@ class App extends PureComponent {
           <Route exact path='/'>
             {this._renderGameScreen()}
           </Route>
-          <Route exact path='/artist'>
+          <Route exact path='/dev-artist'>
             <QuestionArtist
               question={questions[0]}
               onAnswer={() => {}}/>
           </Route>
-          <Route exact path='/genre'>
+          <Route exact path='/dev-genre'>
             <QuestionGenre
               question={questions[1]}
               onAnswer={() => {}}
@@ -58,8 +58,6 @@ class App extends PureComponent {
     }
 
     if (question) {
-      const question = questions[step];
-
       switch (question.type) {
         case GameType.ARTIST:
           return (

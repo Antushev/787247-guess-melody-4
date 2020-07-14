@@ -42,8 +42,8 @@ class QuestionGenre extends PureComponent {
               onAnswer(question, answers);
             }}
           >
-            {answers.map((answer, index) => {
-              return <div key={answer.genre} className="track">
+            {answers.map((answer, index) => (
+              <div key={answer.genre} className="track">
                 <button className="track__button track__button--play" type="button"></button>
                 <div className="track__status">
                   <audio src={answer.src}></audio>
@@ -54,8 +54,8 @@ class QuestionGenre extends PureComponent {
                   />
                   <label className="game__check" htmlFor={`answer-${index}`}>Отметить</label>
                 </div>
-              </div>;
-            })}
+              </div>
+            ))}
             <button className="game__submit button" type="submit">Ответить</button>
           </form>
         </section>

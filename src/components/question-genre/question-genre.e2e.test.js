@@ -2,38 +2,17 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
+import {questionGenre} from '../../utils/questions-test.js';
+
 import QuestionGenre from './question-genre';
 
 configure({adapter: new Adapter()});
-
-const question = {
-  type: `genre`,
-  genre: `rep`,
-  answers: [
-    {
-      genre: `rep`,
-      src: `https://music.yandex.ru/album/10798364/track/66306611`
-    },
-    {
-      genre: `rock`,
-      src: `https://music.yandex.ru/album/10798364/track/66306611`
-    },
-    {
-      genre: `hip-hop`,
-      src: `https://music.yandex.ru/album/10798364/track/66306611`
-    },
-    {
-      genre: `pop`,
-      src: `https://music.yandex.ru/album/10798364/track/66306611`
-    }
-  ]
-};
 
 describe(`QuestionGenreComponent`, () => {
   it(`When user answers genre question form is not sent`, () => {
     const onAnswer = jest.fn();
     const genreQuestion = shallow(<QuestionGenre
-      question={question}
+      question={questionGenre}
       onAnswer={onAnswer}
     />);
 
@@ -49,29 +28,27 @@ describe(`QuestionGenreComponent`, () => {
 
   it(`User answer passed to callback is consistent with "userAnswer" prop`, () => {
     const onAnswer = jest.fn((...args) => [...args]);
-    const userAnswer = [false, false, false, true];
+    const userAnswer = [true, false, false, false];
 
     const genreQuestion = shallow(<QuestionGenre
-      onAnswer={onAnswer}
-      question={question}
+      onAnswer={() => onAnswer(questionGenre, userAnswer)}
+      question={questionGenre}
     />);
 
     const form = genreQuestion.find(`form`);
-    const inputTwo = genreQuestion.find(`input`).at(3);
+    const input = genreQuestion.find(`input`).at(1);
 
-    inputTwo.simulate(`change`, {target: {checked: true}});
-    form.simulate(`submit`, {
-      preventDefault() {
-      }
-    });
+    input.simulate(`change`, {target: {checked: true}});
+    form.simulate(`submit`, {preventDefault() {}});
 
     expect(onAnswer).toHaveBeenCalledTimes(1);
 
-    expect(onAnswer.mock.calls[0][0]).toMatchObject(question);
+    expect(onAnswer.mock.calls[0][0]).toMatchObject(questionGenre);
     expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
 
+    expect(input.prop.checked).toBe(true);
     expect(
-        genreQuestion.find(`input`).map((it) => it.prop(`checked`))
+        genreQuestion.find(`.game__input`).map((it) => it.prop(`checked`))
     ).toEqual(userAnswer);
   });
 });
