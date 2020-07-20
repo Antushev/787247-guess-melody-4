@@ -1,8 +1,8 @@
 import React from 'react';
-import {configure, shallow} from 'enzyme';
+import {configure, mount, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import {questionGenre} from '../../utils/questions-test.js';
+import {questionGenre} from '../../mocks-test/questions-test.js';
 
 import QuestionGenre from './question-genre';
 
@@ -30,9 +30,9 @@ describe(`QuestionGenreComponent`, () => {
     const onAnswer = jest.fn((...args) => [...args]);
     const userAnswer = [true, false, false, false];
 
-    const genreQuestion = shallow(<QuestionGenre
-      onAnswer={() => onAnswer(questionGenre, userAnswer)}
+    const genreQuestion = mount(<QuestionGenre
       question={questionGenre}
+      onAnswer={() => onAnswer(questionGenre, userAnswer)}
     />);
 
     const form = genreQuestion.find(`form`);
@@ -45,10 +45,5 @@ describe(`QuestionGenreComponent`, () => {
 
     expect(onAnswer.mock.calls[0][0]).toMatchObject(questionGenre);
     expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
-
-    expect(input.prop.checked).toBe(true);
-    expect(
-        genreQuestion.find(`.game__input`).map((it) => it.prop(`checked`))
-    ).toEqual(userAnswer);
   });
 });

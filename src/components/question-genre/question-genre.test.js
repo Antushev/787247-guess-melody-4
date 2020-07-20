@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {questionGenre} from '../../utils/questions-test.js';
+import {questionGenre} from '../../mocks-test/questions-test.js';
 
 import QuestionGenre from './question-genre';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import {questionArtist} from '../../utils/questions-test.js';
+import {questionArtist} from '../../mocks-test/questions-test.js';
 
 import QuestionArtist from './question-artist.jsx';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {questions} from '../../utils/questions-test.js';
+import {questions} from '../../mocks-test/questions-test.js';
 
 import App from './app.jsx';
 
