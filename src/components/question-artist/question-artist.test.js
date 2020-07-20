@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {questionArtist} from '../../mocks-test/questions-test.js';
