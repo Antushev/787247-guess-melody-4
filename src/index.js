@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import {questions} from './mocks/questions.js';
+import {gameSettings} from './mocks/game-settings.js';
+
 import App from './components/app/app.jsx';
 
-const ERROR_COUNT = 10;
-
 const init = () => {
-  const settings = {
-    errorCount: ERROR_COUNT,
-  };
+  const {errorCount} = gameSettings;
 
   ReactDOM.render(
       <App
-        errorCount={settings.errorCount}
+        errorCount={errorCount}
+        questions={questions}
       />,
       document.querySelector(`#root`)
   );
