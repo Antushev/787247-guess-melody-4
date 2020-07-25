@@ -72,17 +72,6 @@ exports[`QuestionArtistComponent QuestionArtistSnapshot 1`] = `
       <div
         className="track"
       >
-        <button
-          className="track__button track__button--play"
-          type="button"
-        />
-        <div
-          className="track__status"
-        >
-          <audio
-            src="https://music.yandex.ru/album/10798364/track/66306611"
-          />
-        </div>
         <div
           className="game__answer"
         >
@@ -104,17 +93,6 @@ exports[`QuestionArtistComponent QuestionArtistSnapshot 1`] = `
       <div
         className="track"
       >
-        <button
-          className="track__button track__button--play"
-          type="button"
-        />
-        <div
-          className="track__status"
-        >
-          <audio
-            src="https://music.yandex.ru/album/10798364/track/66306611"
-          />
-        </div>
         <div
           className="game__answer"
         >
@@ -136,17 +114,6 @@ exports[`QuestionArtistComponent QuestionArtistSnapshot 1`] = `
       <div
         className="track"
       >
-        <button
-          className="track__button track__button--play"
-          type="button"
-        />
-        <div
-          className="track__status"
-        >
-          <audio
-            src="https://music.yandex.ru/album/10798364/track/66306611"
-          />
-        </div>
         <div
           className="game__answer"
         >
@@ -168,17 +135,6 @@ exports[`QuestionArtistComponent QuestionArtistSnapshot 1`] = `
       <div
         className="track"
       >
-        <button
-          className="track__button track__button--play"
-          type="button"
-        />
-        <div
-          className="track__status"
-        >
-          <audio
-            src="https://music.yandex.ru/album/10798364/track/66306611"
-          />
-        </div>
         <div
           className="game__answer"
         >

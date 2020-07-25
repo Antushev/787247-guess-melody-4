@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {questionGenre} from '../../mocks-test/questions-test.js';
@@ -12,8 +12,12 @@ describe(`AudioPlayerComponent`, () => {
           <AudioPlayer
             src={questionGenre.answers[0].src}
             isPlaying={true}
-            hanldeButtonPlayerClick={() => {}}
-          />
+            handleButtonPlayerClick={() => {}}
+          />, {
+            createNodeMock: () => {
+              return {};
+            }
+          }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

@@ -10,6 +10,7 @@ describe(`QuestionArtistComponent`, () => {
     const tree = renderer.create(<QuestionGenre
       question={questionGenre}
       onAnswer={() => {}}
+      renderAudioPlayer={() => {}}
     />).toJSON();
 
     expect(tree).toMatchSnapshot();

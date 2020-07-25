@@ -14,6 +14,7 @@ describe(`QuestionGenreComponent`, () => {
     const genreQuestion = shallow(<QuestionGenre
       question={questionGenre}
       onAnswer={onAnswer}
+      renderAudioPlayer={() => {}}
     />);
 
     const form = genreQuestion.find(`form`);
@@ -33,6 +34,7 @@ describe(`QuestionGenreComponent`, () => {
     const genreQuestion = mount(<QuestionGenre
       question={questionGenre}
       onAnswer={() => onAnswer(questionGenre, userAnswer)}
+      renderAudioPlayer={() => {}}
     />);
 
     const form = genreQuestion.find(`form`);

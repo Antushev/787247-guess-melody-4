@@ -20,6 +20,7 @@ describe(`QuestionArtistComponent`, () => {
         <QuestionArtist
           question={questionArtist}
           onAnswer={onAnswer}
+          renderAudioPlayer={() => {}}
         />
     );
 
