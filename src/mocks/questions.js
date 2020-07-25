@@ -17,7 +17,7 @@ const questions = [
     ],
     song: {
       artist: `Лена`,
-      src: `https://music.yandex.ru/album/10798364/track/66306611`
+      src: `https://htmlacademy-react-2.appspot.com/guess-melody/static/music/Skanada.mp3`
     }
   },
   {
@@ -26,19 +26,19 @@ const questions = [
     answers: [
       {
         genre: `rep`,
-        src: `https://music.yandex.ru/album/10798364/track/66306611`
+        src: `https://htmlacademy-react-2.appspot.com/guess-melody/static/music/Azure.mp3`
       },
       {
         genre: `rock`,
-        src: `https://music.yandex.ru/album/10798364/track/66306611`
+        src: `https://htmlacademy-react-2.appspot.com/guess-melody/static/music/Blue_Whale.mp3`
       },
       {
         genre: `hip-hop`,
-        src: `https://music.yandex.ru/album/10798364/track/66306611`
+        src: `https://htmlacademy-react-2.appspot.com/guess-melody/static/music/Blue_Whale.mp3`
       },
       {
         genre: `pop`,
-        src: `https://music.yandex.ru/album/10798364/track/66306611`
+        src: `https://htmlacademy-react-2.appspot.com/guess-melody/static/music/Skanada.mp3`
       }
     ]
   }

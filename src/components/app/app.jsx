@@ -7,6 +7,11 @@ import WelcomeScreen from '../welcome-screen/welcome-screen.jsx';
 import QuestionArtist from '../question-artist/question-artist.jsx';
 import QuestionGenre from '../question-genre/question-genre.jsx';
 
+import {withActivePlayer} from '../../hocs/with-active-play.jsx';
+
+const QuestionArtistWithHoc = withActivePlayer(QuestionArtist);
+const QuestionGenreWithHoc = withActivePlayer(QuestionGenre);
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -26,12 +31,12 @@ class App extends PureComponent {
             {this._renderGameScreen()}
           </Route>
           <Route exact path='/dev-artist'>
-            <QuestionArtist
+            <QuestionArtistWithHoc
               question={questions[0]}
               onAnswer={() => {}}/>
           </Route>
           <Route exact path='/dev-genre'>
-            <QuestionGenre
+            <QuestionGenreWithHoc
               question={questions[1]}
               onAnswer={() => {}}
             />
@@ -61,7 +66,7 @@ class App extends PureComponent {
       switch (question.type) {
         case GameType.ARTIST:
           return (
-            <QuestionArtist
+            <QuestionArtistWithHoc
               question={question}
               onAnswer={() => {
                 this.setState((prevState) => ({
@@ -72,7 +77,7 @@ class App extends PureComponent {
           );
         case GameType.GENRE:
           return (
-            <QuestionGenre
+            <QuestionGenreWithHoc
               question={question}
               onAnswer={() => {
                 this.setState((prevState) => ({

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const QuestionArtist = (props) => {
-  const {question, onAnswer} = props;
+  const {question, onAnswer, renderAudioPlayer} = props;
   const {song, answers} = question;
 
   return (
@@ -28,10 +28,7 @@ const QuestionArtist = (props) => {
         <h2 className="game__title">Кто исполняет эту песню?</h2>
         <div className="game__track">
           <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
-            <div className="track__status">
-              <audio src={song.src}></audio>
-            </div>
+            {renderAudioPlayer(song.src, 0)}
           </div>
         </div>
 
@@ -69,7 +66,8 @@ QuestionArtist.propTypes = {
       src: PropTypes.string.isRequired
     })
   }).isRequired,
-  onAnswer: PropTypes.func.isRequired
+  onAnswer: PropTypes.func.isRequired,
+  renderAudioPlayer: PropTypes.func.isRequired
 };
 
 export default QuestionArtist;

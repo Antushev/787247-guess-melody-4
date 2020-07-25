@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
+import AudioPlayer from '../audio-player/audio-player.jsx';
+
 class QuestionGenre extends PureComponent {
   constructor(props) {
     super(props);
@@ -11,7 +13,7 @@ class QuestionGenre extends PureComponent {
   }
 
   render() {
-    const {question, onAnswer} = this.props;
+    const {question, onAnswer, renderAudioPlayer} = this.props;
     const {answers, genre} = question;
 
     return (
@@ -44,10 +46,7 @@ class QuestionGenre extends PureComponent {
           >
             {answers.map((answer, index) => (
               <div key={answer.genre} className="track">
-                <button className="track__button track__button--play" type="button"></button>
-                <div className="track__status">
-                  <audio src={answer.src}></audio>
-                </div>
+                {renderAudioPlayer(answer.src, index)}
                 <div className="game__answer">
                   <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${index}`}
                     id={`answer-${index}`}
@@ -74,7 +73,8 @@ QuestionGenre.propTypes = {
     genre: PropTypes.isRequired,
     type: PropTypes.isRequired
   }).isRequired,
-  onAnswer: PropTypes.func.isRequired
+  onAnswer: PropTypes.func.isRequired,
+  renderAudioPlayer: PropTypes.func.isRequired
 };
 
 export default QuestionGenre;
